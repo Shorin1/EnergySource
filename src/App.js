@@ -15,7 +15,7 @@ function App(props) {
     <div className="App">
       <HashRouter>
         <Header />
-        <Route path="/contents" component={Contents} />
+        <Route exact path="/" component={Contents} />
         <Route path="/solar" component={Solar} />
         <Route path="/air" component={Air} />
         <Route path="/hydro" component={Hydro} />

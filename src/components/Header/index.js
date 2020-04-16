@@ -24,7 +24,7 @@ const Header = () => {
 
     return (
         <Container style={navStyle} fluid>
-                <NavLink style={btnStyle} to="/contents"><Button color="primary">К оглавлению</Button></NavLink>
+                <NavLink style={btnStyle} to="/"><Button color="primary">К оглавлению</Button></NavLink>
                 <h3 style={titleStyle}>ВОЗОБНОВЛЯЕМЫЕ ИСТОЧНИКИ ЭНЕРГИИ И ИХ ИСПОЛЬЗОВАНИЕ</h3>
         </Container>
     );
