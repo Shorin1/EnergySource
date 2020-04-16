@@ -1,6 +1,7 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import { Button, Container } from 'reactstrap';
+import { NavLink } from 'react-router-dom';
 
 const Header = () => {
     const navStyle = {
@@ -23,7 +24,7 @@ const Header = () => {
 
     return (
         <Container style={navStyle} fluid>
-                <Button style={btnStyle} color="info" size="md">К оглавлению</Button>
+                <NavLink style={btnStyle} to="/contents"><Button color="primary">К оглавлению</Button></NavLink>
                 <h3 style={titleStyle}>ВОЗОБНОВЛЯЕМЫЕ ИСТОЧНИКИ ЭНЕРГИИ И ИХ ИСПОЛЬЗОВАНИЕ</h3>
         </Container>
     );

@@ -8,11 +8,19 @@ import Pictures2 from './img/Pictures2.png'
 import Pictures3 from './img/Pictures3.png'
 
 const Theory = () => {
+    const formulaStyle = {
+        fontSize: "16pt"
+    };
+
+    const fracFormulaStyle = {
+        fontSize: "18pt"
+    };
+
     return (
-            <Card>
-                <CardHeader>
-                    <CardTitle><h3>Солнечная энергия</h3></CardTitle>
-                </CardHeader>
+        <Card>
+            <CardHeader>
+                <CardTitle><h3>Солнечная энергия</h3></CardTitle>
+            </CardHeader>
             <CardBody>
                 <CardText>
                     Энергия Солнца является одним из главных ВИЭ. Она широко
@@ -61,73 +69,71 @@ const Theory = () => {
                     определяется энергетическим балансом:
                 </CardText>
                 <CardText className="text-center">
-                    <Majax.Node inline formula={"{Q}={Q}_{погл} - {Q}_{пот}"} /> (6.1)
+                    <Majax.Node style={formulaStyle} inline formula="{Q}={Q}_{погл} - {Q}_{пот}" />, (6.1)
                 </CardText>
                 <CardText>
-                    где <Majax.Node inline formula={"{Q}_{погл}"} /> – поток излучения, поглощаемый приемником; 
-                    <Majax.Node inline formula={"{Q}_{пот}"} /> – тепловые потери приемника.
+                    где <Majax.Node inline formula="{Q}_{погл}" /> – поток излучения, поглощаемый приемником;
+                    <Majax.Node inline formula="\ {Q}_{пот}" /> – тепловые потери приемника.
                 </CardText>
                 <CardText>
                     Поток солнечного излучения, поглощаемого панелью приемника, пропорционален плотности солнечного потока и площади
                     приемной поверхности:
                 </CardText>
                 <CardText className="text-center">
-                    <Majax.Node inline formula={"{Q}_{погл}={τ}_{пок}{α}_{п}{S}_{п}{E}"} /> (6.2)
+                    <Majax.Node style={formulaStyle} inline formula="{Q}_{погл}={τ}_{пок}{α}_{п}{S}_{п}{E}" />, (6.2)
                 </CardText>
                 <CardText>
-                    где <Majax.Node inline formula={"{τ}_{пок}"} /> – коэффициент пропускания прозрачного покрытия, защищающего приемную поверхность 
-                    (<Majax.Node inline formula={"{τ}_{пок}"} /> = 0,8–0,9); 
-                    <Majax.Node inline formula={"{α}_{п}"} /> – коэффициент поглощения приемной поверхности; 
-                    <Majax.Node inline formula={"{S}_{п}"} /> – площадь освещенной поверхности, 
-                    <Majax.Node inline formula={"{α}^{п}"} />; 
-                    <Majax.Node inline formula={"E"} /> – плотность солнечного потока, 
-                    <Majax.Node inline formula={"{Вт}/{м}^{2}"} />.
+                    где <Majax.Node inline formula="{τ}_{пок}" /> – коэффициент пропускания прозрачного покрытия, защищающего приемную поверхность
+                    (<Majax.Node inline formula="\ {τ}_{пок}" /> = 0,8–0,9);
+                    <Majax.Node inline formula="\ {α}_{п}" /> – коэффициент поглощения приемной поверхности;
+                    <Majax.Node inline formula="\ {S}_{п}" /> – площадь освещенной поверхности,
+                    <Majax.Node inline formula="\ {α}^{п}" />;
+                    <Majax.Node inline formula="\ E" /> – плотность солнечного потока,
+                    <Majax.Node inline formula="\ {Вт}/{м}^{2}" />.
                 </CardText>
                 <CardText>
-                    В процессе поглощения температура приемной поверхности повышается. Превышение температуры поглощающей панели 
-                    <Majax.Node inline formula={"t_{п}"} /> над температурой окружающей среды 
-                    <Majax.Node inline formula={"{t}_{ос}"} /> приводит к потере тепла от приемника:
+                    В процессе поглощения температура приемной поверхности повышается. Превышение температуры поглощающей панели
+                    <Majax.Node inline formula="\ t_{п}" /> над температурой окружающей среды
+                    <Majax.Node inline formula="\ {t}_{ос}" /> приводит к потере тепла от приемника:
                 </CardText>
                 <CardText className="text-center">
-                    <Majax.Node inline formula={"{Q}_{пот}={k}_{пот}({t}_{п}-{t}_{ос}){S}_{п}"} /> (6.3)
+                    <Majax.Node style={formulaStyle} inline formula="{Q}_{пот}={k}_{пот}({t}_{п}-{t}_{ос}){S}_{п}" />, (6.3)
                 </CardText>
                 <CardText>
-                    где <Majax.Node inline formula={"{k}_{пот}"} /> – коэффициент тепловых потерь, 
-                    <Majax.Node inline formula={"{Вт}/({м}^{2}*{K})"} />. Коэффициент тепловых потерь находится из равенства
+                    где <Majax.Node inline formula="{k}_{пот}" /> – коэффициент тепловых потерь, <Majax.Node inline formula="{Вт}/({м}^{2}*{K})" />.
+                    Коэффициент тепловых потерь находится из равенства
                 </CardText>
                 <CardText className="text-center">
-                    <Majax.Node inline formula={"k_{пот}=1/R=1/α_{возд}+δ_{ст}/λ_{ст}+1/α_{ос}"} /> (6.4)
+                    <Majax.Node style={fracFormulaStyle} inline formula="k_{пот}=\frac{1}{R}=\frac{1}{α_{возд}}+\frac{δ_{ст}}{λ_{ст}}+\frac{1}{α_{ос}}" />, (6.4)
                 </CardText>
                 <CardText>
-                    где <Majax.Node inline formula={"R"} /> – термическое сопротивление поверхности приемника, зависящее от его теплоизоляции и от покрытия, 
-                    <Majax.Node inline formula={"Вт/(м^2*K)"} /> ; 
-                    <Majax.Node inline formula={"a_{возд}"} /> – коэффициент теплоотдачи от поглощающей к лучепрозрачной поверхности, 
-                    <Majax.Node inline formula={"Вт/(м^2*K)"} />; 
-                    <Majax.Node inline formula={"a_{oc}"} /> – коэффициент теплоотдачи от лучепрозрачной поверхности к окружающей среде, 
-                    <Majax.Node inline formula={"Вт/(м^2*K)"} />;
+                    где <Majax.Node inline formula="R" /> – термическое сопротивление поверхности приемника,
+                    зависящее от его теплоизоляции и от покрытия, <Majax.Node inline formula="Вт/(м^2*K)" />;
+                    <Majax.Node inline formula="\ a_{возд}" /> – коэффициент теплоотдачи от поглощающей
+                    к лучепрозрачной поверхности, <Majax.Node inline formula="Вт/(м^2*K)" />;
+                    <Majax.Node inline formula="\ a_{oc}" /> – коэффициент теплоотдачи от лучепрозрачной
+                    поверхности к окружающей среде, <Majax.Node inline formula="Вт/(м^2*K)" />;
                 </CardText>
                 <CardText>
-                    <Majax.Node inline formula={"δ_{ст}"} /> – толщина лучепрозрачной поверхности, 
-                    <Majax.Node inline formula={"m"} />; 
-                    <Majax.Node inline formula={"λ_{ст}"} /> – теплопроводность лучепрозрачной поверхности, 
-                    <Majax.Node inline formula={"Вт/(м*K)"} />. Количество тепла, требуемого для нагрева жидкости, оценивается согласно выражению
+                    <Majax.Node inline formula="δ_{ст}" /> – толщина лучепрозрачной
+                    поверхности, <Majax.Node inline formula="m" />;
+                    <Majax.Node inline formula="\ λ_{ст}" /> – теплопроводность лучепрозрачной поверхности, <Majax.Node inline formula="Вт/(м*K)" />.
+                    Количество тепла, требуемого для нагрева жидкости, оценивается согласно выражению
                 </CardText>
                 <CardText className="text-center">
-                    <Majax.Node inline formula={"Q_{ж}=mc(t_{в2}-t_{в1})"} /> (6.5)
+                    <Majax.Node style={formulaStyle} inline formula="Q_{ж}=mc(t_{в2}-t_{в1})" />, (6.5)
                 </CardText>
                 <CardText>
-                    где <Majax.Node inline formula={"m"} /> – масса теплоносителя, 
-                    <Majax.Node inline formula={"кг"} />; 
-                    <Majax.Node inline formula={"c"} /> – теплоемкость теплоносителя, 
-                    <Majax.Node inline formula={"Дж/(кг*К)"} />; 
-                    <Majax.Node inline formula={"t_{в2}, t_{в1}"} /> – конечная и начальная температуры теплоносителя, 
-                    <Majax.Node inline formula={"°С"} />.
+                    где <Majax.Node inline formula="m" /> – масса теплоносителя, <Majax.Node inline formula="кг" />;
+                    <Majax.Node inline formula="\ c" /> – теплоемкость теплоносителя, <Majax.Node inline formula="Дж/(кг*К)" />;
+                    <Majax.Node inline formula="\ t_{в2}" /> <Majax.Node inline formula="t_{в1}" /> –
+                    конечная и начальная температуры теплоносителя, <Majax.Node inline formula="°С" />.
                 </CardText>
                 <CardText>
                     КПД коллектора определяется по формуле
                 </CardText>
                 <CardText className="text-center">
-                    <Majax.Node inline formula={"η=Q/(S_{п}E)=η_{0}-k_{пот}((t_{п}-t_{ос})/E)"} /> (6.6)
+                    <Majax.Node style={fracFormulaStyle} inline formula="η=\frac{Q}{S_{п}E}=η_{0}-k_{пот}\frac{t_{п}-t_{ос}}{E}" />, (6.6)
                 </CardText>
                 <CardText>
                     где <Majax.Node inline formula={"η_{0}"} /> – оптический КПД коллектора.
@@ -159,25 +165,21 @@ const Theory = () => {
                     Мощность солнечной батареи определяется по формуле
                 </CardText>
                 <CardText className="text-center">
-                    <Majax.Node inline formula={"N=ηSE"} /> (6.7)
+                    <Majax.Node style={formulaStyle} inline formula={"N=ηSE"} />, (6.7)
                 </CardText>
                 <CardText>
-                    где <Majax.Node inline formula={"η"} /> – КПД солнечной батареи, 
-                    <Majax.Node inline formula={"Вт"} />; 
-                    <Majax.Node inline formula={"S"} /> – площадь солнечной батареи, 
-                    <Majax.Node inline formula={"м^{2}"} />; 
-                    <Majax.Node inline formula={"E"} /> – плотность потока солнечного излучения, 
-                    <Majax.Node inline formula={"Вт/м^{2}"} />.
+                    где <Majax.Node inline formula="η" /> – КПД солнечной батареи, <Majax.Node inline formula="Вт" />;
+                    <Majax.Node inline formula="\ S" /> – площадь солнечной батареи, <Majax.Node inline formula="м^{2}" />;
+                    <Majax.Node inline formula="\ E" /> – плотность потока солнечного излучения, <Majax.Node inline formula="Вт/м^{2}" />.
                 </CardText>
                 <CardText>
                     ЭДС солнечной батареи определяется выражением
                 </CardText>
                 <CardText className="text-center">
-                    <Majax.Node inline formula={"ЭДС=N/(iS)"} /> (6.8)
+                    <Majax.Node style={fracFormulaStyle} inline formula="ЭДС=\frac{N}{iS}" />, (6.8)
                 </CardText>
                 <CardText>
-                    где <Majax.Node inline formula={"i"} /> – плотность тока, 
-                    <Majax.Node inline formula={"А/см^{2}"} />
+                    где <Majax.Node inline formula="i" /> – плотность тока, <Majax.Node inline formula="А/см^{2}" />
                 </CardText>
             </CardBody>
         </Card>

@@ -1,49 +1,84 @@
 import React, { useState } from 'react'
 import 'bootstrap/dist/css/bootstrap.css'
-import { Row, Col, Card, CardTitle, CardBody, CardText, CardHeader, CardSubtitle, Input, Button, InputGroup, InputGroupAddon, CardFooter } from 'reactstrap'
+import {
+    Row, Col, Card, CardTitle, CardBody, CardText, CardHeader,
+    CardSubtitle, Alert, Input, Button, InputGroup,
+    InputGroupAddon, CardFooter, InputGroupText
+} from 'reactstrap'
 import Majax from 'react-mathjax'
 
 const Example1 = () => {
+    const inputGroupStyle = {
+        height: "41px"
+    };
+
+    const formulaStyle = {
+        fontSize: "16pt"
+    };
+
+    const fracFormulaStyle = {
+        fontSize: "18pt"
+    };
+
     // s
     const [s, setS] = useState(0);
-    const changeS = (event) => isNaN(parseFloat(event.target.value)) ? setS(0) : setS(parseFloat(event.target.value));
+    const [sInpt, setSInpt] = useState(0);
+    const changeS = (event) => isNaN(parseFloat(event.target.value)) ? setSInpt(0) : setSInpt(parseFloat(event.target.value));
     // t1
     const [t1, setT1] = useState(0);
-    const changeT1 = (event) => isNaN(parseFloat(event.target.value)) ? setT1(0) : setT1(parseFloat(event.target.value));
+    const [t1Inpt, setT1Inpt] = useState(0);
+    const changeT1 = (event) => isNaN(parseFloat(event.target.value)) ? setT1Inpt(0) : setT1Inpt(parseFloat(event.target.value));
     // t2
     const [t2, setT2] = useState(0);
-    const changeT2 = (event) => isNaN(parseFloat(event.target.value)) ? setT2(0) : setT2(parseFloat(event.target.value));
+    const [t2Inpt, setT2Inpt] = useState(0);
+    const changeT2 = (event) => isNaN(parseFloat(event.target.value)) ? setT2Inpt(0) : setT2Inpt(parseFloat(event.target.value));
     // e
     const [e, setE] = useState(0);
-    const changeE = (event) => isNaN(parseFloat(event.target.value)) ? setE(0) : setE(parseFloat(event.target.value));
+    const [eInpt, setEInpt] = useState(0);
+    const changeE = (event) => isNaN(parseFloat(event.target.value)) ? setEInpt(0) : setEInpt(parseFloat(event.target.value));
     // alpha
     const [alpha, setAlpha] = useState(0);
-    const changeAlpha = (event) => isNaN(parseFloat(event.target.value)) ? setAlpha(0) : setAlpha(parseFloat(event.target.value));
+    const [alphaInpt, setAlphaInpt] = useState(0);
+    const changeAlpha = (event) => isNaN(parseFloat(event.target.value)) ? setAlphaInpt(0) : setAlphaInpt(parseFloat(event.target.value));
     // tau
     const [tau, setTau] = useState(0);
-    const changeTau = (event) => isNaN(parseFloat(event.target.value)) ? setTau(0) : setTau(parseFloat(event.target.value));
+    const [tauInpt, setTauInpt] = useState(0);
+    const changeTau = (event) => isNaN(parseFloat(event.target.value)) ? setTauInpt(0) : setTauInpt(parseFloat(event.target.value));
     // cp
     const [cp, setCp] = useState(0);
-    const changeCp = (event) => isNaN(parseFloat(event.target.value)) ? setCp(0) : setCp(parseFloat(event.target.value));
+    const [cpInpt, setCpInpt] = useState(0);
+    const changeCp = (event) => isNaN(parseFloat(event.target.value)) ? setCpInpt(0) : setCpInpt(parseFloat(event.target.value));
     // v
     const [v, setV] = useState(0);
-    const changeV = (event) => isNaN(parseFloat(event.target.value)) ? setV(0) : setV(parseFloat(event.target.value));
+    const [vInpt, setVInpt] = useState(0);
+    const changeV = (event) => isNaN(parseFloat(event.target.value)) ? setVInpt(0) : setVInpt(parseFloat(event.target.value));
     // rho
     const [rho, setRho] = useState(0);
-    const changeRho = (event) => isNaN(parseFloat(event.target.value)) ? setRho(0) : setRho(parseFloat(event.target.value));
+    const [rhoInpt, setRhoInpt] = useState(0);
+    const changeRho = (event) => isNaN(parseFloat(event.target.value)) ? setRhoInpt(0) : setRhoInpt(parseFloat(event.target.value));
     // result
     const [q, setQ] = useState("0");
     const [m, setM] = useState("0");
     const [volume, setVolume] = useState("0");
 
     const resolve = () => {
-        let qRes = alpha * tau * s * e * v * 3600;
+        setS(sInpt);
+        setT1(t1Inpt);
+        setT2(t2Inpt);
+        setE(eInpt);
+        setAlpha(alphaInpt);
+        setTau(tauInpt);
+        setCp(cpInpt);
+        setV(vInpt);
+        setRho(rhoInpt);
+
+        let qRes = alphaInpt * tauInpt * sInpt * eInpt * vInpt * 3600;
         isNaN(qRes) ? setQ("0") : setQ(qRes.toFixed(3));
 
-        let mRes = qRes / (cp * (t2 - t1));
+        let mRes = qRes / (cpInpt * (t2Inpt - t1Inpt));
         isNaN(mRes) ? setM("0") : setM(mRes.toFixed(3));
 
-        let volumeRes = mRes / rho;
+        let volumeRes = mRes / rhoInpt;
         isNaN(volumeRes) ? setVolume("0") : setVolume(volumeRes.toFixed(3));
     };
 
@@ -56,153 +91,134 @@ const Example1 = () => {
                 <CardSubtitle><h4>Условие</h4></CardSubtitle>
                 <CardText>
                     Вода нагревается в солнечном коллекторе площадью
-                            <Majax.Node inline formula={"S"} /> от температуры
-                            <Majax.Node inline formula={"t_{1}"} /> до
-                            <Majax.Node inline formula={"t_{2}"} />. Плотность потока солнечного излучения
-                            <Majax.Node inline formula={"E"} />. Коэффициент поглощения
-                            <Majax.Node inline formula={"α"} />, пропускная способность
-                            <Majax.Node inline formula={"τ"} />. Определить, какой объем воды можно нагреть в коллекторе за время
-                            <Majax.Node inline formula={"v"} /> часов. Параметры воды
-                            <Majax.Node inline formula={"c_{p}"} />,
-                            <Majax.Node inline formula={"ρ"} />.
-                        </CardText>
+                        <Majax.Node inline formula="\ S" /> от температуры
+                        <Majax.Node inline formula="\ t_{1}" /> до
+                        <Majax.Node inline formula="\ t_{2}" />. Плотность потока солнечного излучения
+                        <Majax.Node inline formula="\ E" />. Коэффициент поглощения
+                        <Majax.Node inline formula="\ α" />, пропускная способность
+                        <Majax.Node inline formula="\ τ" />. Определить, какой объем воды можно нагреть в коллекторе за время
+                        <Majax.Node inline formula="\ v" /> часов. Параметры воды
+                        <Majax.Node inline formula="\ c_{p}" />,
+                        <Majax.Node inline formula="\ ρ" />.
+                    </CardText>
                 <CardSubtitle><h4>Входные данные</h4></CardSubtitle>
-                <Row className="mb-2">
+                <Alert className="mt-3" color="info">Числа с запятой нужно вводить через точку</Alert>
+                <Row>
                     <Col className="mt-2" sm={3}>
                         <InputGroup>
                             <InputGroupAddon addonType="prepend">
-                                <Button disabled>
-                                    <Majax.Node inline formula={"S"} /> 
-                                    <Majax.Node inline formula={"м^{2}"} />
-                                </Button>
+                                <InputGroupText>
+                                    <Majax.Node inline formula="S" />
+                                    <Majax.Node inline formula="\ м^{2}" />
+                                </InputGroupText>
                             </InputGroupAddon>
-                            <Input onChange={changeS} /> 
-                            <Majax.Node inline formula={""} />
-                        </InputGroup>
-                    </Col>
-                    <Col className="mt-2" sm={3}>
-                        <InputGroup>
-                            <InputGroupAddon addonType="prepend">
-                                <Button disabled>
-                                    <Majax.Node inline formula={"t_{1}"} />
-                                    <Majax.Node inline formula={"°С"} />
-                                </Button>
-                            </InputGroupAddon>
-                            <Input onChange={changeT1} />
+                            <Input style={inputGroupStyle} onChange={changeS} />
                         </InputGroup>
                     </Col>
                     <Col className="mt-2" sm={3}>
                         <InputGroup>
                             <InputGroupAddon addonType="prepend">
-                                <Button disabled>
-                                    <Majax.Node inline formula={"t_{2}"} />
-                                    <Majax.Node inline formula={"°С"} />
-                                </Button>
+                                <InputGroupText>
+                                    <Majax.Node inline formula="t_{1}" />
+                                    <Majax.Node inline formula="\ °С" />
+                                </InputGroupText>
                             </InputGroupAddon>
-                            <Input onChange={changeT2} />
+                            <Input style={inputGroupStyle} onChange={changeT1} />
                         </InputGroup>
                     </Col>
                     <Col className="mt-2" sm={3}>
                         <InputGroup>
                             <InputGroupAddon addonType="prepend">
-                                <Button disabled>
-                                    <Majax.Node inline formula={"E"} /> 
-                                    <Majax.Node inline formula={"Вт/м^{2}"} />
-                                </Button>
+                                <InputGroupText>
+                                    <Majax.Node inline formula="t_{2}" />
+                                    <Majax.Node inline formula="\ °С" />
+                                </InputGroupText>
                             </InputGroupAddon>
-                            <Input onChange={changeE} />
-                        </InputGroup>
-                    </Col>
-                    <Col className="mt-2" sm={3}>
-                        <InputGroup>
-                            <InputGroupAddon addonType="prepend"><Button disabled><Majax.Node inline formula={"α"} /></Button></InputGroupAddon>
-                            <Input onChange={changeAlpha} />
-                        </InputGroup>
-                    </Col>
-                    <Col className="mt-2" sm={3}>
-                        <InputGroup>
-                            <InputGroupAddon addonType="prepend"><Button disabled><Majax.Node inline formula={"τ"} /></Button></InputGroupAddon>
-                            <Input onChange={changeTau} />
+                            <Input style={inputGroupStyle} onChange={changeT2} />
                         </InputGroup>
                     </Col>
                     <Col className="mt-2" sm={3}>
                         <InputGroup>
                             <InputGroupAddon addonType="prepend">
-                                <Button disabled>
-                                    <Majax.Node inline formula={"v"} /> 
-                                    <Majax.Node inline formula={"час"} />
-                                </Button>
+                                <InputGroupText>
+                                    <Majax.Node inline formula="E" />
+                                    <Majax.Node inline formula="\ Вт/м^{2}" />
+                                </InputGroupText>
                             </InputGroupAddon>
-                            <Input onChange={changeV} />
+                            <Input style={inputGroupStyle} onChange={changeE} />
                         </InputGroup>
                     </Col>
                     <Col className="mt-2" sm={3}>
                         <InputGroup>
                             <InputGroupAddon addonType="prepend">
-                                <Button disabled>
-                                    <Majax.Node inline formula={"c"} /> 
-                                    <Majax.Node inline formula={"Дж/(кг*К)"} />
-                                </Button>
+                                <InputGroupText>
+                                    <Majax.Node inline formula="α" />
+                                </InputGroupText>
                             </InputGroupAddon>
-                            <Input onChange={changeCp} />
+                            <Input style={inputGroupStyle} onChange={changeAlpha} />
                         </InputGroup>
                     </Col>
                     <Col className="mt-2" sm={3}>
                         <InputGroup>
                             <InputGroupAddon addonType="prepend">
-                                <Button disabled>
-                                    <Majax.Node inline formula={"ρ"} /> 
-                                    <Majax.Node inline formula={"кг/м^{3}"} />
-                                </Button>
+                                <InputGroupText>
+                                    <Majax.Node inline formula="τ" />
+                                </InputGroupText>
                             </InputGroupAddon>
-                            <Input onChange={changeRho} />
+                            <Input style={inputGroupStyle} onChange={changeTau} />
+                        </InputGroup>
+                    </Col>
+                    <Col className="mt-2" sm={3}>
+                        <InputGroup>
+                            <InputGroupAddon addonType="prepend">
+                                <InputGroupText>
+                                    <Majax.Node inline formula="v" />
+                                    <Majax.Node inline formula="\ час" />
+                                </InputGroupText>
+                            </InputGroupAddon>
+                            <Input style={inputGroupStyle} onChange={changeV} />
+                        </InputGroup>
+                    </Col>
+                    <Col className="mt-2" sm={3}>
+                        <InputGroup>
+                            <InputGroupAddon addonType="prepend">
+                                <InputGroupText>
+                                    <Majax.Node inline formula="c" />
+                                    <Majax.Node inline formula="\ Дж/(кг*К)" />
+                                </InputGroupText>
+                            </InputGroupAddon>
+                            <Input style={inputGroupStyle} onChange={changeCp} />
+                        </InputGroup>
+                    </Col>
+                    <Col className="mt-2" sm={3}>
+                        <InputGroup>
+                            <InputGroupAddon addonType="prepend">
+                                <InputGroupText>
+                                    <Majax.Node inline formula="ρ" />
+                                    <Majax.Node inline formula="\ кг/м^{3}" />
+                                </InputGroupText>
+                            </InputGroupAddon>
+                            <Input style={inputGroupStyle} onChange={changeRho} />
                         </InputGroup>
                     </Col>
                 </Row>
-                <CardSubtitle><h4>Решение</h4></CardSubtitle>
+                <CardSubtitle className="mt-3"><h4>Решение</h4></CardSubtitle>
                 <CardText>
                     Определим поток солнечного излучения, который
-                            поглощается панелью приемника за <Majax.Node inline formula={"v"} /> часов, по формуле (6.2):
-                        </CardText>
-                <CardText className="text-center">
-                    <Majax.Node inline formula={"Q"} /> =
-                            <Majax.Node inline formula={"α"} /> *
-                            <Majax.Node inline formula={"τ"} /> *
-                            <Majax.Node inline formula={"S"} /> *
-                            <Majax.Node inline formula={"E"} /> *
-                            <Majax.Node inline formula={"v"} /> =
-                            <span>{alpha}</span> *
-                            <span>{tau}</span> *
-                            <span>{s}</span> *
-                            <span>{e}</span> *
-                            <span>{v * 60 * 60}</span> =
-                            <span>{q}</span>
-                    <Majax.Node inline formula={"Дж"} />
+                    поглощается панелью приемника за <Majax.Node inline formula={"v"} /> часов,
+                    по формуле (6.2):
                 </CardText>
                 <CardText className="text-center">
-                    <Majax.Node inline formula={"m"} />  =
-                            <Majax.Node inline formula={"Q"} /> /
-                            (<Majax.Node inline formula={"C"} /> *
-                            (<Majax.Node inline formula={"t_{в2}"} /> -
-                            <Majax.Node inline formula={"t_{в1}"} />)) =
-                            <span>{q}</span> /
-                            (<span>{cp}</span> *
-                            (<span>{t2}</span> -
-                            <span>{t1}</span>)) =
-                            <span>{m}</span>
-                    <Majax.Node inline formula={"кг"} />
+                    <Majax.Node style={formulaStyle} inline formula={`Q=α*τ*S*E*v=${alpha}*${tau}*${s}*${e}*${v * 60 * 60}=${q}\\ Дж`} />
+                </CardText>
+                <CardText className="text-center">
+                    <Majax.Node style={fracFormulaStyle} inline formula={`m = \\frac{Q}{C * (t_{в2} - t_{в1})}=\\frac{${q}}{${cp}(${t2}-${t1})}=${m}\\ кг`} />
                 </CardText>
                 <CardText>
                     Объем воды равен
                 </CardText>
                 <CardText className="text-center">
-                    <Majax.Node inline formula={"V"} />  =
-                            <Majax.Node inline formula={"m"} /> /
-                            <Majax.Node inline formula={"ρ"} /> =
-                            <span>{m}</span> /
-                            <span>{rho}</span> =
-                            <span>{volume}</span>
-                    <Majax.Node inline formula={"м^{3}"} />
+                    <Majax.Node style={fracFormulaStyle} inline formula={`V =\\frac{m}{ρ}=\\frac{${m}}{${rho}}=${volume}\\ м^3`} />
                 </CardText>
             </CardBody>
             <CardFooter>
