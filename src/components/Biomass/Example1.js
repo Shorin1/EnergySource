@@ -41,7 +41,7 @@ const Example1 = () => {
         setQd(qdInpt);
 
         let etaRes = (nInpt * qnInpt) / (mInpt * qdInpt * Math.pow(10, 3));
-        setEta(etaRes.toFixed(2));
+        isNaN(etaRes) ? setEta("0") : setEta(etaRes.toFixed(3));
     };
 
     return (

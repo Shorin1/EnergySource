@@ -37,7 +37,7 @@ const Example2 = () => {
         setEta(etaInpt / 100);
 
         let sRes = nInpt / (etaInpt / 100 * eInpt);
-        setS(sRes.toFixed(3));
+        isNaN(sRes) ? setS("0") : setS(sRes.toFixed(3));
     };
 
     return (

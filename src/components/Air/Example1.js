@@ -57,7 +57,7 @@ const Example1 = () => {
         setRho(rhoInpt);
 
         let nRes = 3.14 * rInpt * rInpt * ((rhoInpt * vInpt * vInpt * vInpt) / 2) * epsInpt * naInpt * nmInpt * nprInpt;
-        setN(nRes.toFixed(2));
+        isNaN(nRes) ? setN("0") : setN(nRes.toFixed(3));
     };
 
     return (
