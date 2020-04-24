@@ -5,7 +5,7 @@ import { Container, Card, CardHeader, CardTitle, CardBody, ListGroup, ListGroupI
 const Sources = () => {
     return (
         <Container>
-            <Card className="mt-3">
+            <Card className="mt-3 mb-3">
                 <CardHeader>
                     <CardTitle><h4>Список используемой литературы</h4></CardTitle>
                 </CardHeader>

@@ -45,7 +45,7 @@ const Example1 = () => {
     };
 
     return (
-        <Card className="mt-3">
+        <Card className="mt-3 mb-3">
             <CardHeader>
                 <CardTitle><h3>Пример</h3></CardTitle>
             </CardHeader>

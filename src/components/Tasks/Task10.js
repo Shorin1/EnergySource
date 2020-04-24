@@ -5,7 +5,7 @@ import Majax from 'react-mathjax'
 
 const Task10 = () => {
     return (
-        <Card className="mt-3">
+        <Card className="mt-3 mb-3">
             <CardHeader>
                 <CardTitle><h4>Задача 10</h4></CardTitle>
             </CardHeader>
