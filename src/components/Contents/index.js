@@ -13,6 +13,7 @@ const Contents = () => {
                 <NavLink to="/hydro"><ListGroupItem tag="a" href="#" action>3 - Гидроэнергия</ListGroupItem></NavLink>
                 <NavLink to="/biomass"><ListGroupItem tag="a" href="#" action>4 - Энергия биомассы</ListGroupItem></NavLink>
                 <NavLink to="/tasks"><ListGroupItem tag="a" href="#" action>Задачи</ListGroupItem></NavLink>
+                <NavLink to="/sources"><ListGroupItem tag="a" href="#" action>Литература</ListGroupItem></NavLink>
             </ListGroup>
         </Container>
     )
