@@ -50,7 +50,7 @@ const Example1 = () => {
                 <CardText>
                     Рассчитать КПД гидроэлектростанции, если расход воды равен
                     <Majax.Node inline formula="\ V\ м/с" /> напор 
-                    воды <Majax.Node inline formula="H\ м" />  а 
+                    воды <Majax.Node inline formula="H\ м" />, а 
                     мощность станции <Majax.Node inline formula="N_{п}" />.
                 </CardText>
                 <CardSubtitle><h4>Входные данные</h4></CardSubtitle>
@@ -60,7 +60,7 @@ const Example1 = () => {
                         <InputGroup>
                             <InputGroupAddon addonType="prepend">
                                 <InputGroupText>
-                                    <Majax.Node inline formula="V\ м^{3}/c" />
+                                    <Majax.Node inline formula="V,\ м^{3}/c" />
                                 </InputGroupText>
                             </InputGroupAddon>
                             <Input style={inputGroupStyle} onChange={changeV} />
@@ -70,7 +70,7 @@ const Example1 = () => {
                         <InputGroup>
                             <InputGroupAddon addonType="prepend">
                                 <InputGroupText>
-                                    <Majax.Node inline formula="H\ м" />
+                                    <Majax.Node inline formula="H,\ м" />
                                 </InputGroupText>
                             </InputGroupAddon>
                             <Input style={inputGroupStyle} onChange={changeH} />
@@ -80,7 +80,7 @@ const Example1 = () => {
                         <InputGroup>
                             <InputGroupAddon addonType="prepend">
                                 <InputGroupText>
-                                    <Majax.Node inline formula="N_{п}\ кВт" />
+                                    <Majax.Node inline formula="N_{п},\ кВт" />
                                 </InputGroupText>
                             </InputGroupAddon>
                             <Input style={inputGroupStyle} onChange={changeNp} />

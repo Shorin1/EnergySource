@@ -81,7 +81,7 @@ const Example1 = () => {
                         <InputGroup>
                             <InputGroupAddon addonType="prepend">
                                 <InputGroupText>
-                                    <Majax.Node inline formula="R\ м" />
+                                    <Majax.Node inline formula="R,\ м" />
                                 </InputGroupText>
                             </InputGroupAddon>
                             <Input style={inputGroupStyle} onChange={changeR} />
@@ -91,7 +91,7 @@ const Example1 = () => {
                         <InputGroup>
                             <InputGroupAddon addonType="prepend">
                                 <InputGroupText>
-                                    <Majax.Node inline formula="v\ м/с" />
+                                    <Majax.Node inline formula="v,\ м/с" />
                                 </InputGroupText>
                             </InputGroupAddon>
                             <Input style={inputGroupStyle} onChange={changeV} />
@@ -141,7 +141,7 @@ const Example1 = () => {
                         <InputGroup>
                             <InputGroupAddon addonType="prepend">
                                 <InputGroupText>
-                                    <Majax.Node inline formula="ρ \ кг/м^3" />
+                                    <Majax.Node inline formula="ρ,\ кг/м^3" />
                                 </InputGroupText>
                             </InputGroupAddon>
                             <Input style={inputGroupStyle} onChange={changeRho} />

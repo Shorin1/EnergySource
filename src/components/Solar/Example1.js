@@ -108,8 +108,7 @@ const Example1 = () => {
                         <InputGroup>
                             <InputGroupAddon addonType="prepend">
                                 <InputGroupText>
-                                    <Majax.Node inline formula="S" />
-                                    <Majax.Node inline formula="\ м^{2}" />
+                                    <Majax.Node inline formula="S,\ м^{2}" />
                                 </InputGroupText>
                             </InputGroupAddon>
                             <Input style={inputGroupStyle} onChange={changeS} />
@@ -119,8 +118,7 @@ const Example1 = () => {
                         <InputGroup>
                             <InputGroupAddon addonType="prepend">
                                 <InputGroupText>
-                                    <Majax.Node inline formula="t_{1}" />
-                                    <Majax.Node inline formula="\ °С" />
+                                    <Majax.Node inline formula="t_{1},\ °С" />
                                 </InputGroupText>
                             </InputGroupAddon>
                             <Input style={inputGroupStyle} onChange={changeT1} />
@@ -130,8 +128,7 @@ const Example1 = () => {
                         <InputGroup>
                             <InputGroupAddon addonType="prepend">
                                 <InputGroupText>
-                                    <Majax.Node inline formula="t_{2}" />
-                                    <Majax.Node inline formula="\ °С" />
+                                    <Majax.Node inline formula="t_{2},\ °С" />
                                 </InputGroupText>
                             </InputGroupAddon>
                             <Input style={inputGroupStyle} onChange={changeT2} />
@@ -141,8 +138,7 @@ const Example1 = () => {
                         <InputGroup>
                             <InputGroupAddon addonType="prepend">
                                 <InputGroupText>
-                                    <Majax.Node inline formula="E" />
-                                    <Majax.Node inline formula="\ Вт/м^{2}" />
+                                    <Majax.Node inline formula="E,\ Вт/м^{2}" />
                                 </InputGroupText>
                             </InputGroupAddon>
                             <Input style={inputGroupStyle} onChange={changeE} />
@@ -172,8 +168,7 @@ const Example1 = () => {
                         <InputGroup>
                             <InputGroupAddon addonType="prepend">
                                 <InputGroupText>
-                                    <Majax.Node inline formula="v" />
-                                    <Majax.Node inline formula="\ час" />
+                                    <Majax.Node inline formula="v,\ час" />
                                 </InputGroupText>
                             </InputGroupAddon>
                             <Input style={inputGroupStyle} onChange={changeV} />
@@ -183,8 +178,7 @@ const Example1 = () => {
                         <InputGroup>
                             <InputGroupAddon addonType="prepend">
                                 <InputGroupText>
-                                    <Majax.Node inline formula="c" />
-                                    <Majax.Node inline formula="\ Дж/(кг*К)" />
+                                    <Majax.Node inline formula="c,\ Дж/(кг*К)" />
                                 </InputGroupText>
                             </InputGroupAddon>
                             <Input style={inputGroupStyle} onChange={changeCp} />
@@ -194,8 +188,7 @@ const Example1 = () => {
                         <InputGroup>
                             <InputGroupAddon addonType="prepend">
                                 <InputGroupText>
-                                    <Majax.Node inline formula="ρ" />
-                                    <Majax.Node inline formula="\ кг/м^{3}" />
+                                    <Majax.Node inline formula="ρ,\ кг/м^{3}" />
                                 </InputGroupText>
                             </InputGroupAddon>
                             <Input style={inputGroupStyle} onChange={changeRho} />
