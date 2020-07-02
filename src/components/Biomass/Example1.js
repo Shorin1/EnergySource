@@ -59,7 +59,7 @@ const Example1 = () => {
                     Теплота сгорания дров <Majax.Node inline formula="Q_{д}\ МДж/кг" />.
                 </CardText>
                 <CardSubtitle><h4>Входные данные</h4></CardSubtitle>
-                <Alert className="mt-3" color="info">Числа с запятой нужно вводить через точку</Alert>
+                <Alert className="mt-3" color="info">Дробные значения нужно вводить через точку</Alert>
                 <Row>
                     <Col className="mt-2" sm={3}>
                         <InputGroup>
@@ -111,7 +111,7 @@ const Example1 = () => {
                 </CardText>
             </CardBody>
             <CardFooter>
-                <Button onClick={resolve}>Расчитать</Button>
+                <Button onClick={resolve}>Рассчитать</Button>
             </CardFooter>
         </Card>
     );
